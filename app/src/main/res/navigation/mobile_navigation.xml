@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/nav_tasks">
+
+    <fragment
+        android:id="@+id/nav_tasks"
+
+        android:name="com.kalugin19.todoapp.ui.tasks.TasksFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_tasks">
+        <action
+            android:id="@+id/action_nav_tasks_to_newTaskFragment"
+            app:destination="@id/newTaskFragment"
+            app:popUpTo="@id/nav_tasks" />
+        <action
+            android:id="@+id/action_nav_tasks_to_viewTaskFragment"
+            app:destination="@id/viewTaskFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/newTaskFragment"
+        android:name="com.kalugin19.todoapp.ui.new_task.NewTaskFragment"
+        android:label="NewTaskFragment"
+        tools:layout="@layout/fragment_new_task" >
+        <argument
+            app:nullable="true"
+            android:defaultValue="@null"
+            android:name="taskId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewTaskFragment"
+        android:name="com.kalugin19.todoapp.ui.view_task.ViewTaskFragment"
+        android:label="ViewTaskFragment"
+        tools:layout="@layout/fragment_task_view" >
+
+        <argument
+            android:name="taskId"
+            app:argType="string" />
+
+        <action
+            android:id="@+id/action_viewTaskFragment_to_newTaskFragment"
+            app:destination="@id/newTaskFragment"
+            app:popUpTo="@id/viewTaskFragment" />
+    </fragment>
+</navigation>

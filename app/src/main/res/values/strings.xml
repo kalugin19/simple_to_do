@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">ToDoApp</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_filter">Filter</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="empty_state_tasks">You have no tasks</string>
+
+    <string name="type_all">All</string>
+    <string name="type_completed">Completed</string>
+    <string name="type_not_completed">Not Completed</string>
+</resources>

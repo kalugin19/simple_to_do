@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.widget.CompoundButton" />
+
+        <variable
+            name="taskClickListener"
+            type="com.kalugin19.todoapp.ui.tasks.ITaskClickListener" />
+
+        <variable
+            name="task"
+            type="com.kalugin19.todoapp.data.pojo.Task" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/materialCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:checked="@{task.completed}"
+            android:onClick="@{(view) -> taskClickListener.completeTask(task, ((CompoundButton)view).isChecked())}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="@{()->taskClickListener.openTask(task.id)}"
+            android:paddingStart="8dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="8dp"
+            android:text="@{task.name}"
+            app:completedTask="@{task.completed}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintStart_toEndOf="@+id/materialCheckBox"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Task1" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
